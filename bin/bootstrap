@@ -10,7 +10,7 @@ rpm -q epel-release >/dev/null || \
 
 yum upgrade -y -q
 
-pkgs='vim-enhanced git ruby ruby-devel jq mailx'
+pkgs=$(cat /vagrant/packages)
 
 for pkg in ${pkgs[@]}; do
   if ! rpm -q $pkg >/dev/null; then

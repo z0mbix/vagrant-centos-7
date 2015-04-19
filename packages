@@ -37,3 +37,7 @@ iftop
 iptraf-ng
 tmux
 ack
+gcc
+gcc-c++
+make
+autoconf

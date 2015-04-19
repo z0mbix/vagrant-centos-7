@@ -22,6 +22,14 @@ done
 rpm -q sysdig >/dev/null || \
   curl -s https://s3.amazonaws.com/download.draios.com/stable/install-sysdig | bash
 
-gem list --local | grep -q fpm || \
-    gem install fpm --no-rdoc --no-ri
+cat > /root/.gemrc <<eof
+gem: --no-rdoc --no-ri
+eof
+
+gems=$(cat /vagrant/gems)
+
+for gem in ${gems[@]}; do
+  gem list --local | grep -q fpm || \
+      gem install fpm --no-rdoc --no-ri
+done
 
